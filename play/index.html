@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play Jelly Plunge</title>
+<meta name="description" content="Get Jelly Plunge free on Google Play and the App Store. 1,000 candy levels, boss fights and endless mode. No adverts.">
+<meta property="og:title" content="Jelly Plunge: get it free">
+<meta property="og:description" content="1,000 candy levels, boss fights and endless mode. One thumb, no adverts.">
+<meta property="og:image" content="https://sugarfallstudio.com/img/jelly-banner.jpg">
+<meta property="og:url" content="https://sugarfallstudio.com/play/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../img/favicon.png">
+<link rel="canonical" href="https://sugarfallstudio.com/play/">
+<script>
+  // ---- The one switch for launch day --------------------------------------
+  // false: iPhone visitors see "coming soon" here (no broken App Store link).
+  // true:  iPhone visitors go straight to the App Store page.
+  var APP_STORE_LIVE = false;
+  // ---------------------------------------------------------------------------
+  var PLAY = "https://play.google.com/store/apps/details?id=com.sugarfallstudio.jellyplunge";
+  var APPLE = "https://apps.apple.com/app/id6833125792";
+  (function () {
+    var ua = navigator.userAgent || "";
+    var stay = /[?&]stay\b/.test(location.search);   // ...?stay shows this page anywhere
+    var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(ua);
+    if (stay) return;
+    if (android) location.replace(PLAY);
+    else if (ios && APP_STORE_LIVE) location.replace(APPLE);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  body { background: linear-gradient(180deg, var(--sky-top), #7c4fe0 55%, var(--sky-bottom)); min-height: 100vh; color: #fff; }
+  .card { max-width: 440px; margin: 0 auto; padding: 40px 16px 32px; text-align: center; }
+  .card .icon { width: 128px; height: 128px; margin: 0 auto 14px; border-radius: 28px; border: 5px solid var(--ink); box-shadow: 0 10px 0 rgba(43,26,74,.35); }
+  .card h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); line-height: 1; margin: 0 0 8px; text-shadow: 0 4px 0 rgba(43,26,74,.35); }
+  .card p.lead { margin: 0 0 26px; font-size: 1.1rem; }
+  .stores { display: grid; gap: 14px; }
+  .store { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 18px; border-radius: 18px;
+           border: 4px solid var(--ink); text-decoration: none; color: #fff; font-family: "Lilita One", system-ui, sans-serif; font-size: 1.25rem;
+           box-shadow: 0 6px 0 rgba(43,26,74,.45); transition: transform .12s ease; }
+  .store small { display: block; font-family: system-ui, -apple-system, sans-serif; font-size: .8rem; opacity: .9; letter-spacing: 0; }
+  .store svg { width: 30px; height: 30px; flex: none; }
+  .store .txt { text-align: left; line-height: 1.15; }
+  a.store:hover { transform: translateY(-2px); }
+  .google { background: var(--green); }
+  .apple { background: #1b1230; }
+  .apple.soon { background: rgba(27,18,48,.55); border-style: dashed; cursor: default; box-shadow: none; }
+  .note { margin-top: 18px; font-size: .95rem; min-height: 1.4em; }
+  .shot { width: min(260px, 70vw); margin: 30px auto 0; border-radius: 26px; border: 5px solid var(--ink); box-shadow: 0 14px 30px rgba(43,26,74,.35); }
+  .foot { margin-top: 26px; font-size: .85rem; opacity: .9; }
+  .foot a { color: #fff; }
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="icon" src="../img/jelly-icon.png" alt="Jelly Plunge icon" width="128" height="128">
+  <h1>Jelly Plunge</h1>
+  <p class="lead">1,000 candy levels, boss fights and endless mode.<br>One thumb. No adverts. Free to play.</p>
+
+  <div class="stores">
+    <a class="store google" id="google" href="https://play.google.com/store/apps/details?id=com.sugarfallstudio.jellyplunge" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M3.6 1.8 13.3 12l-9.7 10.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2zm11 9-2.3-2.4L5 2.2l9.6 8.6zm0 2.4L5 21.8l7.3-6.2 2.3-2.4zm1.4-1.3 3.1 1.8c.9.5.9 1.4 0 1.9l-2.9 1.6-2.5-2.6 2.3-2.4-.1-.3h.1z"/></svg>
+      <span class="txt"><small>GET IT ON</small>Google Play</span>
+    </a>
+    <a class="store apple" id="apple" href="https://apps.apple.com/app/id6833125792" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>
+      <span class="txt"><small id="apple-small">DOWNLOAD ON THE</small><span id="apple-big">App Store</span></span>
+    </a>
+  </div>
+  <p class="note" id="note"></p>
+
+  <img class="shot" src="../img/2_play.jpg" alt="Jelly Plunge gameplay: a jelly falling through candy platforms" width="260">
+  <p class="foot">Made by <a href="https://sugarfallstudio.com/">Sugar Fall Studio</a> · <a href="https://sugarfallstudio.com/privacy.html">Privacy</a></p>
+</main>
+<script>
+  if (!APP_STORE_LIVE) {
+    var a = document.getElementById("apple");
+    a.classList.add("soon");
+    a.removeAttribute("href");
+    a.setAttribute("aria-disabled", "true");
+    document.getElementById("apple-small").textContent = "COMING SOON TO THE";
+    var ua = navigator.userAgent || "";
+    if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) {
+      document.getElementById("note").textContent = "The iPhone version is in Apple's final checks. It'll be on the App Store very soon!";
+    }
+  }
+</script>
+</body>
+</html>
