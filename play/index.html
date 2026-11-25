@@ -20,6 +20,20 @@
   // ---------------------------------------------------------------------------
   var PLAY = "https://play.google.com/store/apps/details?id=com.sugarfallstudio.jellyplunge";
   var APPLE = "https://apps.apple.com/app/id6833125792";
+  // ---- Install tracking ----------------------------------------------------
+  // /play/?src=instagram (optionally &c=bio) passes utm_source=instagram to Google Play, so
+  // Play Console counts store visits and installs from that source (Acquisition → UTM).
+  // Same format as the Growth Suite's Tracked links.
+  (function () {
+    var MEDIUM = { tiktok: "social", instagram: "social", youtube: "social", facebook: "social", x: "social", website: "referral", email: "email", influencer: "influencer" };
+    var q = new URLSearchParams(location.search);
+    var clean = function (v) { return (v || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40); };
+    var src = clean(q.get("src")) || "website";
+    var camp = clean(q.get("c")) || (src === "website" ? "site" : "bio");
+    var utm = "utm_source=" + src + "&utm_medium=" + (MEDIUM[src] || "referral") + "&utm_campaign=" + camp;
+    PLAY += "&referrer=" + encodeURIComponent(utm);
+  })();
+  // ---------------------------------------------------------------------------
   (function () {
     var ua = navigator.userAgent || "";
     var stay = /[?&]stay\b/.test(location.search);   // ...?stay shows this page anywhere
@@ -79,6 +93,7 @@
   <p class="foot">Made by <a href="https://sugarfallstudio.com/">Sugar Fall Studio</a> · <a href="https://sugarfallstudio.com/privacy.html">Privacy</a></p>
 </main>
 <script>
+  document.getElementById("google").href = PLAY;   // the button carries the same tracking
   if (!APP_STORE_LIVE) {
     var a = document.getElementById("apple");
     a.classList.add("soon");
